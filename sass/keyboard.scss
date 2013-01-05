@@ -1,0 +1,45 @@
+
+@import "compass/reset";
+@import "compass/css3/border-radius";
+@import "compass/css3/images";
+@import "compass/css3/box-shadow";
+@import "compass/css3/text-shadow";
+
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+ .container {
+ 	margin: 40px auto;
+ 	width: 980px;
+ }
+
+ .key {
+ 	color: #777;
+ 	display: inline-block;
+ 	font-size: 13px;
+ 	@include border-radius (5px, 5px);
+ 	@include background-image(linear-gradient(left top, white, #eee 40%, #f5f5f5 60%, #ddd 100%));
+ 	@include box-shadow(rgba(#ccc, 1) 0px 3px 1px, rgba(#333, 0.75) 0px 5px 3px, rgba(32, 32, 32, 0.15) 0px 0px 3px 3px inset);
+ 	@include text-shadow(rgba(#000, 0.25) -1px -1px 0px, rgba(#fff, 0.25) 1px 1px 0px); 
+ 	padding-top: 9px;
+ 	padding-left: 1px;
+ 	text-align: center;
+ 	width: 32px;
+ 	height: 23px;
+ 	margin: 5px 7px 5px 0px;
+ 	border: 1px solid #eee;
+ 	background-color: #eee;
+ }
+
+ .key.enter {
+ 	color: #f00;
+ 	width: 64px;
+ }
+
+ .key.down {
+ 	padding-top: 8px;
+ 	padding-bottom: 1px;
+ 	@include background-image(linear-gradient(center top, white, #eee 100%));
+ 	@include box-shadow(rgba(#ccc, 1) 0px 1px 1px, rgba(#333, 0.75) 0px 2px 3px, rgba(32, 32, 32, 0.15) 0px 0px 3px 3px inset);
+ }

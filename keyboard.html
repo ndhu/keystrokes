@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset='utf-8'> 
+	<title>Keyboard</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/keyboard-small.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/demo.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/monokai.css">
+	<script type="text/javascript" src="lib/jquery-1.7.2.js" ></script>
+	<script type="text/javascript" src="js/ah-keys.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Overlock:400,900' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+	<div class="navbar">
+      <div class="navbar-inner">
+      	
+        	<h1><a href="http://www.hulstkamp.com">AH | KEYSTROKES</a></h1>
+        	<p><a href="http://www.hulstkamp.com">display shortcuts & controls library</a></p>
+        	<p><a href="http://www.hulstkamp.com">A prototype V.01 by Andy Hulstkamp [AH]</a><p>
+        </a>
+      </div>
+    </div>
+
+	<div class="container">
+
+		<section class="tagline">
+
+			<h1 class="hero">KEYSTROKES.js</h1>
+
+			<div id="demoKeyboard" style="text-align: center">
+				<div class="row1" ></div>
+				<div class="row2" ></div>
+				<div class="row3" ></div>
+				<div class="row4" ></div>
+				<div class="row5" ></div>
+			</div>
+
+			<h2 class="tagline">
+				<span class="second">shortcuts & controls</span>
+				<span class="third">displayed in a user friendly way</span>
+			</h2>
+
+			<p>
+				this library is in a early stage and will be moved to GitHub soon
+			</p>
+
+		</section>
+
+		<section>
+			<h3>Keys only, no strokes</h3>
+			<div class="justKeys" ></div>
+			<pre>
+				<code class="javascript">
+	var ahks = AHKeystrokes.setup($('.justKeys'))
+				.of('{use} AWSY {to move, hit} [SPACE] {to shoot!}');
+				</code>
+			</per>
+		</section>
+
+		<section>
+			<h3>Keys and strokes sequence</h3>
+			<div class="jumpAndRun" ></div>
+			<pre>
+				<code class="javascript">
+	var ahks = AHKeystrokes.setup($('.jumpAndRun'))
+				.of('{use} [LEFT][RIGHT] {to walk} [UP] {to jump &} [DOWN] {to duck!}')
+				.play([0,1,0,1,0,1,2,3,2,3,2,3], 250)
+				</code>
+			</per>
+		</section>
+
+		<section>
+			<h3>Keys positioning and strokes</h3>
+			<div class="jumpAndRunPositioned" >
+				<div class="look">look around</div>
+				<div class="move">move</div>
+			</div>
+			<pre>
+				<code class="javascript">
+	var ahks = AHKeystrokes.setup($('.jumpAndRunPositioned'))
+				.of('AWSY [UP][DOWN]')
+				.play([0,1,2,3,0,1,2,3,4,5,4,5])
+				.pos([{top:44,left:24},
+					{top:12,left:40},
+					{top:44,left:56},
+					{top:76,left:40},
+					{top:28,left:200},
+					{top:60,left:200},
+				]);
+				</code>
+			</per>
+		</section>
+
+		<section>
+			<h3>Keys live (shows keys hit by user)</h3>
+			<div class="live">
+			</div>
+			<pre>
+				<code class="javascript">
+	var ahks = AHKeystrokes.setup($('.live'))
+				.of('This is live {click here to invoke focus, then press keys}')
+				.live();
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Keys live (keypress and keyrelease callbacks invoked)</h3>
+			<div class="liveCallback">
+			</div>
+			<div id="liveCallbackLog">
+			</div>
+			<pre>
+				<code class="javascript">
+	var options = {onKeyPressed: userPressedKeyHandler,
+				   onKeyReleased: userReleasedKeyHandler
+				  };
+
+	var ahks = AHKeystrokes.setup($('.liveCallback'), options)
+							.of('Hit keys like there is no morning!')
+							.live();
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Keyboard layout</h3>
+			<div id="standardKeyboard">
+				<div class="row0" ></div>
+				<div class="row1" ></div>
+				<div class="row2" ></div>
+				<div class="row3" ></div>
+				<div class="row4" ></div>
+				<div class="row5" ></div>
+			</div>
+			<pre>
+				<code class="javascript">
+	var krow0 = '[ESC] [F1][F2][F3][F4] [F5][F6][F7][F8] [F9][F10][F11][F12] [INS][DEL]',
+		krow1 = '§1234567890?^[BACKSPACE]',
+		krow2 = '[TAB]qwertzuiopü¨',
+		krow3 = '[CAPSLOCK]asdfghjklöä$[ENTER]',
+		krow4 = '[SHIFT]&lsaquo;yxcvbnm,.-[SHIFT]',
+		krow5 = '[CTRL][ALT][SPACE][ALT][CTRL][LEFT][UP][RIGHT][DOWN]',
+
+	standardKeyboard = AHKeystrokes.setup($('#standardKeyboard'))
+					.fillWith($('#standardKeyboard .row0'), krow0)
+					.fillWith($('#standardKeyboard .row1'), krow1)
+					.fillWith($('#standardKeyboard .row2'), krow2)
+					.fillWith($('#standardKeyboard .row3'), krow3)
+					.fillWith($('#standardKeyboard .row4'), krow4)
+					.fillWith($('#standardKeyboard .row5'), krow5);
+
+	$("#standardKeyboard .row0 .key").addClass("small");
+
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Custom Keyboard layout (a modified Colemak), holding keys</h3>
+			<div id="colemakKeyboard">
+				<div class="row0" ></div>
+				<div class="row1" ></div>
+				<div class="row2" ></div>
+				<div class="row3" ></div>
+				<div class="row4" ></div>
+				<div class="row5" ></div>
+			</div>
+			<pre>
+				<code class="javascript">
+	var cmkrow0 = '`1234567890-=[BACKSPACE]',
+		cmkrow1 = '[TAB]qwfpgjluy;()',
+		cmkrow2 = '[BACKSPACE]arstdhneio`[ENTER]',
+		cmkrow3 = '[SHIFT]zxcvbkm,./[SHIFT]',
+		cmkrow4 = '[CTRL][ALT][SPACE][ALT][CTRL]',
+
+		ahks = AHKeystrokes.setup($('#colemakKeyboard'))
+				.fillWith($('#colemakKeyboard .row0'), cmkrow0)
+				.fillWith($('#colemakKeyboard .row1'), cmkrow1)
+				.fillWith($('#colemakKeyboard .row2'), cmkrow2)
+				.fillWith($('#colemakKeyboard .row3'), cmkrow3)
+				.fillWith($('#colemakKeyboard .row4'), cmkrow4)
+				.hold([52,18]);
+
+				</code>
+			</pre>
+		</section>
+
+		<section id="demoApp">
+			<h3>Interactive Demo: Learn Sublime Text Shortcuts</h3>	
+			<p>
+				Links trigger display of shortcuts
+			</p>
+
+			<ul class="commands">
+				
+			</ul>
+			<div id="learnShortcuts">
+				<div class="row0" ></div>
+				<div class="row1" ></div>
+				<div class="row2" ></div>
+				<div class="row3" ></div>
+				<div class="row4" ></div>
+				<div class="row5" ></div>
+			</div>
+
+		</section>
+
+	
+	</div>
+
+
+
+<script type="text/javascript">
+	// calls the init method
+	$(document).ready(function() {
+	var elem,
+		krow0 = '[ESC] [F1][F2][F3][F4] [F5][F6][F7][F8] [F9][F10][F11][F12] [INS][DEL]',
+		krow1 = '§1234567890?^[BACKSPACE]',
+		krow2 = '[TAB]qwertzuiopü¨',
+		krow3 = '[CAPSLOCK]asdfghjklöä$[ENTER]',
+		krow4 = '[SHIFT]<yxcvbnm,.-[SHIFT]',
+		krow5 = '[CTRL][ALT][SPACE][ALT][CTRL][LEFT][UP][RIGHT][DOWN]',
+		cmkrow0 = '`1234567890-=[BACKSPACE]',
+		cmkrow1 = '[TAB]qwfpgjluy;()',
+		cmkrow2 = '[BACKSPACE]arstdhneio`[ENTER]',
+		cmkrow3 = '[SHIFT]zxcvbkm,./[SHIFT]',
+		cmkrow4 = '[CTRL][ALT][SPACE][ALT][CTRL]';
+
+
+	var demoKeyboard = AHKeystrokes.setup($('#demoKeyboard'))
+			.fillWith($('#demoKeyboard .row0'), krow0)
+			.fillWith($('#demoKeyboard .row1'), krow1)
+			.fillWith($('#demoKeyboard .row2'), krow2)
+			.fillWith($('#demoKeyboard .row3'), krow3)
+			.fillWith($('#demoKeyboard .row4'), krow4)
+			.fillWith($('#demoKeyboard .row5'), krow5)
+			.play([33,17,36,-1,36,-1,23,56,16,23,18,36,30,[54,41,28],-1,[54,41,45],-1,[54,41,46],-1,54,[54,55],[54,55,60],[54,55,62],[54,55,60],[54,55,62]], 500).info();
+
+	AHKeystrokes.setup($('.justKeys')).of('{use} AWSY {to move, hit} [SPACE] {to shoot!}');
+
+	AHKeystrokes.setup($('.jumpAndRun')).of('{use} [LEFT][RIGHT] {to walk} [UP] {to jump &} [DOWN] {to duck!}')
+	.play([0,1,0,1,0,1,2,3,2,3,2,3], 250)
+
+	AHKeystrokes.setup($('.jumpAndRunPositioned'))
+		.of('AWSY [UP][DOWN]')
+		.play([0,1,2,3,0,1,2,3,4,5,4,5])
+		.pos([{top:44,left:24},
+			{top:12,left:40},
+			{top:44,left:56},
+			{top:76,left:40},
+			{top:28,left:200},
+			{top:60,left:200},
+			]);
+
+
+	AHKeystrokes.setup($('.live'))
+			.of('This is live {click here to invoke focus, then press keys}')
+			.live();
+
+	var log = $("#liveCallbackLog");
+	var userPressedKeyHandler = function (e) {
+		log.text("User pressed " +  String.fromCharCode(e.keyCode) + "<br />");
+	};
+
+	var userReleasedKeyHandler = function (e) {
+		log.append("User released " + String.fromCharCode(e.keyCode) + "<br />");
+		log.scrolltop  = log.scrollHeight;
+	};
+
+	var options = {onKeyPressed: userPressedKeyHandler,
+				   onKeyReleased: userReleasedKeyHandler
+				  };
+
+	AHKeystrokes.setup($('.liveCallback'), options)
+			.of('Hit keys like there is no morning!')
+			.live();
+
+	var standardKeyboard = AHKeystrokes.setup($('#standardKeyboard'))
+			.fillWith($('#standardKeyboard .row0'), krow0)
+			.fillWith($('#standardKeyboard .row1'), krow1)
+			.fillWith($('#standardKeyboard .row2'), krow2)
+			.fillWith($('#standardKeyboard .row3'), krow3)
+			.fillWith($('#standardKeyboard .row4'), krow4)
+			.fillWith($('#standardKeyboard .row5'), krow5);
+	$("#standardKeyboard .row0 .key").addClass("small");
+
+	var colemakKeyboard = AHKeystrokes.setup($('#colemakKeyboard'))
+			.fillWith($('#colemakKeyboard .row0'), cmkrow0)
+			.fillWith($('#colemakKeyboard .row1'), cmkrow1)
+			.fillWith($('#colemakKeyboard .row2'), cmkrow2)
+			.fillWith($('#colemakKeyboard .row3'), cmkrow3)
+			.fillWith($('#colemakKeyboard .row4'), cmkrow4)
+			.hold([52,40,28]);
+
+	var learnShortcuts = AHKeystrokes.setup($('#learnShortcuts'))
+			.fillWith($('#learnShortcuts .row0'), krow0)
+			.fillWith($('#learnShortcuts .row1'), krow1)
+			.fillWith($('#learnShortcuts .row2'), krow2)
+			.fillWith($('#learnShortcuts .row3'), krow3)
+			.fillWith($('#learnShortcuts .row4'), krow4)
+			.fillWith($('#learnShortcuts .row5'), krow5)
+			.hold([69,56,43]).info();
+	$("#learnShortcuts .row0 .key").addClass("small");
+
+	var sublimeShorts = [
+		{ "keys": ["69,56,63"], "command": "new_window" },
+		{ "keys": ["56,55"], "command": "insert"},
+		{ "keys": ["69,56,31"], "command": "close_window" },
+		{ "keys": ["69,70,75"], "command": "select_lines up"},
+		{ "keys": ["69,70,77"], "command": "select_lines down" },
+		{ "keys": ["69,56,34"], "command": "reopen_last_file" },
+		{ "keys": ["69,56,44"], "command": "prompt_save_as" },
+	];
+
+	var cmdList = $("#demoApp ul.commands"), html = '', cmd;
+
+	for (var i = 0; i <sublimeShorts.length; i++) {
+		cmd = sublimeShorts[i];
+		html += '<li data-keys="' + cmd.keys[0] + '"">' + cmd.command + '</li>';
+	}
+
+	cmdList.append(html);
+	$("li", cmdList).click(function () {
+		learnShortcuts.hold($(this).attr('data-keys').split(","));
+	})
+			
+	hljs.initHighlightingOnLoad();
+});
+	
+	
+
+</script>
+
+
+<script type="text/javascript" src="js/highlight.pack.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+/* line 17, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* line 20, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1; }
+
+/* line 22, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none; }
+
+/* line 24, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 26, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+/* line 28, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none; }
+  /* line 101, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+/* line 30, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none; }
+
+/* line 114, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block; }
+
+/* line 13, ../sass/keyboard-small.scss */
+.gap {
+  display: inline-block;
+  width: 11.5px;
+  height: 11.5px; }
+
+/* line 19, ../sass/keyboard-small.scss */
+.key {
+  color: #777;
+  display: inline-block;
+  font-size: 13px;
+  -webkit-border-radius: 5px 5px;
+  -moz-border-radius: 5px / 5px;
+  -ms-border-radius: 5px / 5px;
+  -o-border-radius: 5px / 5px;
+  border-radius: 5px / 5px;
+  background-color: #eee;
+  /* @include background-image(linear-gradient(left top, white, #e8e8e8 40%, #f5f5f5 60%, #e8e8e8 100%)); */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: #cccccc 0px 1px 1px, rgba(51, 51, 51, 0.75) 0px 4px 2px, rgba(32, 32, 32, 0.15) 0px 0px 1px 1px inset;
+  -moz-box-shadow: #cccccc 0px 1px 1px, rgba(51, 51, 51, 0.75) 0px 4px 2px, rgba(32, 32, 32, 0.15) 0px 0px 1px 1px inset;
+  box-shadow: #cccccc 0px 1px 1px, rgba(51, 51, 51, 0.75) 0px 4px 2px, rgba(32, 32, 32, 0.15) 0px 0px 1px 1px inset;
+  /* @include text-shadow(rgba(#000, 0.25) -1px -1px 0px, rgba(#fff, 0.25) 1px 1px 0px); */
+  padding: 4px;
+  text-align: center;
+  width: 23px;
+  height: 23px;
+  margin: 3px;
+  border: 1px solid #eee;
+  background-color: #eee; }
+
+/* line 38, ../sass/keyboard-small.scss */
+.key.enter {
+  color: #333;
+  width: 64px; }
+
+/* line 43, ../sass/keyboard-small.scss */
+.key.tab, .key.ctrl, .key.alt {
+  color: #333;
+  width: 46px; }
+
+/* line 48, ../sass/keyboard-small.scss */
+.key.shift {
+  color: #333;
+  width: 51.75px; }
+
+/* line 53, ../sass/keyboard-small.scss */
+.key.capslock {
+  color: #333;
+  width: 69px; }
+
+/* line 59, ../sass/keyboard-small.scss */
+.key.small {
+  font-size: 0.5em;
+  height: 17.25px;
+  padding: 4px 0px; }
+
+/* line 69, ../sass/keyboard-small.scss */
+.key.tellUs {
+  color: #f00;
+  width: 72px; }
+  /* line 73, ../sass/keyboard-small.scss */
+  .key.tellUs a {
+    color: #f00;
+    text-decoration: none; }
+
+/* line 79, ../sass/keyboard-small.scss */
+.key.space {
+  width: 162px; }
+
+/* line 83, ../sass/keyboard-small.scss */
+.key.down {
+  padding: 4px;
+  background-color: #a3cC08;
+  color: #fff;
+  text-shadow: rgba(0, 0, 0, 0.25) 1px 1px 1px, rgba(255, 255, 255, 0.25) 1px 1px 0px;
+  /* @include background-image(linear-gradient(center top, white, #eee 100%)); */
+  -webkit-box-shadow: #cccccc 0px 1px 1px, rgba(51, 51, 51, 0.75) 0px 1px 1px, rgba(32, 32, 32, 0.15) 0px 0px 2px 2px inset;
+  -moz-box-shadow: #cccccc 0px 1px 1px, rgba(51, 51, 51, 0.75) 0px 1px 1px, rgba(32, 32, 32, 0.15) 0px 0px 2px 2px inset;
+  box-shadow: #cccccc 0px 1px 1px, rgba(51, 51, 51, 0.75) 0px 1px 1px, rgba(32, 32, 32, 0.15) 0px 0px 2px 2px inset; }
